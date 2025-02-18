@@ -17,3 +17,5 @@ AIにレビューを読ませて有用・非有用を判定
       promt = f"""
       ここ
       """
+手順6  review_text = f"タイトル: {本文: {review_data['review']}"において
+　　　['review']の中身を御社のカラム名に変更する。
