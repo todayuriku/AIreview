@@ -134,7 +134,22 @@ AIにレビューを読ませて有用・非有用を判定
      (12) results_df = run_analysis_with_checkpoints(
     df,
     checkpoint_path='review_analysis_checkpoint.csv',
-    batch_size=10  )
+    batch_size=10  )  
+
+    results_df:
+
+以上は、run_analysis_with_checkpoints関数を呼び出してレビュー分析を実行するためのコードです。このコードは、指定したデータフレームdfに対してレビュー分析を行い、結果をチェックポイントファイルに保存します。　　
+results_df:
+
+この変数には、レビュー分析の結果が格納されます。最終的に分析されたデータフレームが返されます。  
+
+・run_analysis_with_checkpoints:レビューを分析し、途中経過を指定したチェックポイントファイルに保存します。  
+
+
+・df: 分析対象のデータフレーム（レビューが含まれている）。
+・checkpoint_path: 結果を保存するCSVファイルのパス。ここではreview_analysis_checkpoint.csvという名前で保存します。
+・batch_size: 一度に処理するレビューの数。ここでは10件のレビューを一度に分析します。
+
 
      
      
