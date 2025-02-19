@@ -72,9 +72,9 @@ AIにレビューを読ませて有用・非有用を判定
 ・google.generativeai: Googleの生成AIモデルにアクセスするためのライブラリです。自然言語処理や生成タスクを実行するための機能を提供します。  
 
 ⑹  
-      # 行の表示数を設定（Noneを指定すると全ての行を表示）
-       pd.set_option('display.max_rows', None)
 
+     # 行の表示数を設定（Noneを指定すると全ての行を表示）
+       pd.set_option('display.max_rows', None)
      # 列の表示数を設定（Noneを指定すると全ての列を表示）
      pd.set_option('display.max_columns', None)
 
