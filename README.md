@@ -3,7 +3,7 @@ AIにレビューを読ませて有用・非有用を判定
 
 手順1 必要なライブラリをインポートする。  
 
-      # 必要なパッケージのインポート
+      ①# 必要なパッケージのインポート
       import pandas as pd
       import google.generativeai as genai
       from google.colab import drive, userdata
