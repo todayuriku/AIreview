@@ -10,12 +10,13 @@ AIにレビューを読ませて有用・非有用を判定
       import time
       import random
       from tqdm import tqdm
-      from google.api_core import exceptions, retry  
-
-      以下に、各パッケージの役割について簡単に説明します。 
+      from google.api_core import exceptions, retry   
 
   
-   　・pandas: データ操作と解析のためのライブラリ。データフレームを使用してデータを効率的に管理できる。
+  　　以下に、各パッケージの役割について簡単に説明します。  
+    
+   　・pandas: データ操作と解析のためのライブラリ。データフレームを使用してデータを効率的に管理できる。  
+　　 ・google.generativeai: Googleの生成AIにアクセスするためのライブラリ。自然言語処理や生成タスクに利用されます。
 
       
 
