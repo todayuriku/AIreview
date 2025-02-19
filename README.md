@@ -146,8 +146,10 @@ results_df:
 ・run_analysis_with_checkpoints:レビューを分析し、途中経過を指定したチェックポイントファイルに保存します。  
 
 
-・df: 分析対象のデータフレーム（レビューが含まれている）。
-・checkpoint_path: 結果を保存するCSVファイルのパス。ここではreview_analysis_checkpoint.csvという名前で保存します。
+・df: 分析対象のデータフレーム（レビューが含まれている）。  
+
+・checkpoint_path: 結果を保存するCSVファイルのパス。ここではreview_analysis_checkpoint.csvという名前で保存します。  
+
 ・batch_size: 一度に処理するレビューの数。ここでは10件のレビューを一度に分析します。
 
 
