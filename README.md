@@ -144,12 +144,14 @@ def analyze_reviews_batch(df, start_idx=0, batch_size=10):
 
     batch['analysis_result'] = results
     return batch, end_idx
+    
 
 # 進捗を保存しながら分析を実行
 def run_analysis_with_checkpoints(input_df, checkpoint_path='review_analysis_checkpoint.csv',
                                 batch_size=10, start_from=0):
     """チェックポイントを保存しながらレビュー分析を実行する
 
+   
     Args:
         input_df: 入力データフレーム
         checkpoint_path: チェックポイントファイルのパス
@@ -186,6 +188,8 @@ def run_analysis_with_checkpoints(input_df, checkpoint_path='review_analysis_che
         # 最終結果の結合
         final_results = pd.concat(all_results) if all_results else pd.DataFrame()
         return final_results
+
+        
 
 　　　なお、関数内の review_text = f"タイトル: {本文: {review_data['review']}"において、  
     
