@@ -16,7 +16,7 @@ AIにレビューを読ませて有用・非有用を判定
       from google.api_core import exceptions, retry   
 
   
-  　　以下に、各パッケージの役割について簡単に説明します。  
+  　　　以下に、各パッケージの役割について簡単に説明します。  
     
    　・pandas: データ操作と解析のためのライブラリ。データフレームを使用してデータを効率的に管理できます。  
 　　 ・google.generativeai: Googleの生成AIにアクセスするためのライブラリ。  
