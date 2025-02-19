@@ -106,24 +106,36 @@ AIにレビューを読ませて有用・非有用を判定
    
 手順5　有用・非有用を判定する関数を設定する。
 
-   　　@retry.Retry(predicate=retry.if_exception_type(exceptions.ResourceExhausted))
-　　　　def analyze_review(review_data):
-   　　 review_text = f"タイトル: {本文: {review_data['review']}"
-   　　 prompt = f"""
-   　　 以下に入力する商品レビューの本文が、製品開発に有用であれば、True、非有用であれば、Falseと出力してください。ただし、以　　　　　下の例文のようなただ褒めるだけのようなレビューは非有用と判断してください。(例)すごい。
-    {review_text}
-    """
-    try:
-        response = gemini_pro.generate_content(prompt)
-        return response.text.strip()
+    ⑾
+                start_idx=current_idx,
+                batch_size=batch_size
+            )
+
+            all_results.append(analyzed_batch)
+            current_results = pd.concat(all_results)
+            current_results.to_csv(checkpoint_path)
+
+            print(f"Checkpoint saved at index {last_idx}")
+            current_idx = last_idx
+
+            time.sleep(10)  # バッチ間の待機
+
     except Exception as e:
-        print(f"Error analyzing review: {e}")
-        return "ERROR"
+        print(f"Error occurred at index {current_idx}: {e}")
+        print("You can resume from this index later")
+
+    finally:
+        final_results = pd.concat(all_results) if all_results else pd.DataFrame()
+        return final_results
+
+
+
+
 
 
         
 
-　　　なお、関数内の review_text = f"タイトル: {本文: {review_data['review']}"において、  
+　　　以上関数内の review_text = f"タイトル: {本文: {review_data['review']}"において、  
     
 　　　['review']の中身を御社のデータのURLを貼り、カラム名を変更する。  
    　　
