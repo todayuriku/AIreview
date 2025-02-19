@@ -57,6 +57,10 @@ AIにレビューを読ませて有用・非有用を判定
 
 手順2 Google driveと接続する。  
 
+# Google Driveのマウントとパッケージのインストール
+drive.mount('/content/drive')
+!pip install google-generativeai
+
 手順3 API接続を行う。  
 
 手順4 dfにレビューデータを入れる  
