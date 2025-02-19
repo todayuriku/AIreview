@@ -59,7 +59,19 @@ AIにレビューを読ませて有用・非有用を判定
 
       ⑷# Google Driveのマウントとパッケージのインストール
         drive.mount('/content/drive')
-        !pip install google-generativeai
+        !pip install google-generativeai  
+
+      ⑸import google.colab
+        import google.generativeai as genai  
+        
+
+⑸のコードは、Google Colabの特定の機能を使用するためのgoogle.colabモジュールと、Googleの生成AIにアクセスするためのgoogle.generativeaiモジュールをインポートするものです。これらのモジュールについて簡単に説明します。
+
+・google.colab: Google Colab環境で特定の機能を提供するためのモジュールです。主に、ファイルのアップロード、Google Driveとの連携、ユーザーデータの管理などに使用されます。
+
+・google.generativeai: Googleの生成AIモデルにアクセスするためのライブラリです。自然言語処理や生成タスクを実行するための機能を提供します。
+
+
 
 手順3 API接続を行う。  
 
