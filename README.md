@@ -3,6 +3,22 @@ AIにレビューを読ませて有用・非有用を判定
 
 手順1 必要なライブラリをインポートする。  
 
+      # 必要なパッケージのインポート
+      import pandas as pd
+      import google.generativeai as genai
+      from google.colab import drive, userdata
+      import time
+      import random
+      from tqdm import tqdm
+      from google.api_core import exceptions, retry  
+
+      以下に、各パッケージの役割について簡単に説明します。 
+
+  
+   　・pandas: データ操作と解析のためのライブラリ。データフレームを使用してデータを効率的に管理できる。
+
+      
+
 手順2 Google driveと接続する。  
 
 手順3 API接続を行う。  
