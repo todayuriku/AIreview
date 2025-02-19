@@ -57,7 +57,7 @@ AIにレビューを読ませて有用・非有用を判定
 
 手順2 Google driveと接続する。  
 
-      # Google Driveのマウントとパッケージのインストール
+      ⑷# Google Driveのマウントとパッケージのインストール
         drive.mount('/content/drive')
         !pip install google-generativeai
 
