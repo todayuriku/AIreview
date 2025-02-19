@@ -150,7 +150,13 @@ results_df:
 
 ・checkpoint_path: 結果を保存するCSVファイルのパス。ここではreview_analysis_checkpoint.csvという名前で保存します。  
 
-・batch_size: 一度に処理するレビューの数。ここでは10件のレビューを一度に分析します。
+・batch_size: 一度に処理するレビューの数。ここでは10件のレビューを一度に分析します。  
+
+     (13) results_df.head()　　
+
+以上のresults_df.head()は、分析結果のデータフレームresults_dfの最初の5行を表示するためのコードです。この関数を使うことで、データフレームの構造や内容を簡単に確認できます。
+
+
 
 
      
