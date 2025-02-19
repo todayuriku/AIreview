@@ -129,6 +129,12 @@ AIにレビューを読ませて有用・非有用を判定
      prompt = f"""
      {review_text}
      """
-      {review_text}の部分の指示を変えることで、精度をより上げていける。
+      {review_text}の部分の指示を変えることで、精度をより上げていける。  
+
+     (12) results_df = run_analysis_with_checkpoints(
+    df,
+    checkpoint_path='review_analysis_checkpoint.csv',
+    batch_size=10  )
+
      
      
