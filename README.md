@@ -106,7 +106,6 @@ AIにレビューを読ませて有用・非有用を判定
    
 手順5　有用・非有用を判定する関数を設定する。
 
-　　　⑾　
    　　@retry.Retry(predicate=retry.if_exception_type(exceptions.ResourceExhausted))
 　　　　def analyze_review(review_data):
    　　 review_text = f"タイトル: {本文: {review_data['review']}"
