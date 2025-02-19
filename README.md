@@ -27,7 +27,14 @@ AIにレビューを読ませて有用・非有用を判定
    　・google.api_core.exceptions: Google APIのエラーハンドリングを行うための例外クラスを提供します。  
      ・google.api_core.retry: API呼び出しの再試行を管理するための機能を提供します。  
 
-     ② import numpy as np　import pandas as pd
+     ② import numpy as np　import pandas as pd 
+     
+以上のコードは、numpyとpandasライブラリをインポートするためのものです。これらのライブラリについて簡単に説明します。  
+
+インポートしたパッケージの説明
+・numpy: 数値計算や配列操作のためのライブラリです。効率的な数値計算を行うための多次元配列オブジェクト（ndarray）を提供します。
+
+・pandas: データ操作と解析のためのライブラリです。特に、表形式のデータ（データフレーム）を扱うのに便利です。
 
      
     
