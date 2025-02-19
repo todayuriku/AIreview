@@ -104,7 +104,88 @@ AIにレビューを読ませて有用・非有用を判定
 
       ⑽　df = pd.read_csv("ここ")
    
-手順5　有用・非有用を判定する関数を設定する。  
+手順5　有用・非有用を判定する関数を設定する。
+
+　　　⑾　@retry.Retry(predicate=retry.if_exception_type(exceptions.ResourceExhausted))
+　　　　　def analyze_review(review_data):
+
+    
+    review_text = f"タイトル: {本文: {review_data['review']}"
+    prompt = f"""
+    以下に入力する商品レビューの本文が、製品開発に有用であれば、True、非有用であれば、Falseと出力してください。ただし、以下の例文のようなただ褒めるだけのようなレビューは非有用と判断してください。(例)すごい。
+    {review_text}
+    """
+    try:
+        response = gemini_pro.generate_content(prompt)
+        return response.text.strip()
+    except Exception as e:
+        print(f"Error analyzing review: {e}")
+        return "ERROR"
+
+def analyze_reviews_batch(df, start_idx=0, batch_size=10):
+    """指定された開始位置からバッチサイズ分のレビューを分析する
+
+    Args:
+        df: 分析対象のデータフレーム
+        start_idx: 開始インデックス
+        batch_size: バッチサイズ
+    Returns:
+        analyzed_df: 分析結果を含むデータフレーム
+        last_idx: 最後に処理したインデックス
+    """
+    end_idx = min(start_idx + batch_size, len(df))
+    batch = df.iloc[start_idx:end_idx].copy()
+
+    results = []
+    for _, row in tqdm(batch.iterrows(), total=len(batch), desc=f"Analyzing {start_idx} to {end_idx}"):
+        result = analyze_review(row)
+        results.append(result)
+        time.sleep(3)  # API制限対策
+
+    batch['analysis_result'] = results
+    return batch, end_idx
+
+# 進捗を保存しながら分析を実行
+def run_analysis_with_checkpoints(input_df, checkpoint_path='review_analysis_checkpoint.csv',
+                                batch_size=10, start_from=0):
+    """チェックポイントを保存しながらレビュー分析を実行する
+
+    Args:
+        input_df: 入力データフレーム
+        checkpoint_path: チェックポイントファイルのパス
+        batch_size: バッチサイズ
+        start_from: 開始インデックス
+    """
+    all_results = []
+    current_idx = start_from
+
+    try:
+        while current_idx < len(input_df):
+            # バッチ処理の実行
+            analyzed_batch, last_idx = analyze_reviews_batch(
+                input_df,
+                start_idx=current_idx,
+                batch_size=batch_size
+            )
+
+            # 結果の保存
+            all_results.append(analyzed_batch)
+            current_results = pd.concat(all_results)
+            current_results.to_csv(checkpoint_path)
+
+            print(f"Checkpoint saved at index {last_idx}")
+            current_idx = last_idx
+
+            time.sleep(10)  # バッチ間の待機
+
+    except Exception as e:
+        print(f"Error occurred at index {current_idx}: {e}")
+        print("You can resume from this index later")
+
+    finally:
+        # 最終結果の結合
+        final_results = pd.concat(all_results) if all_results else pd.DataFrame()
+        return final_results
 
 　　　なお、関数内の review_text = f"タイトル: {本文: {review_data['review']}"において、  
     
