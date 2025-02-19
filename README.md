@@ -18,7 +18,7 @@ AIにレビューを読ませて有用・非有用を判定
       from google.api_core import exceptions, retry   
 
   
-  　　　以下に、各パッケージの役割について簡単に説明します。  
+  　　　以上の各パッケージの役割について簡単に説明します。  
     
    　・pandas: データ操作と解析のためのライブラリ。データフレームを使用してデータを効率的に管理できます。  
 　　 ・google.generativeai: Googleの生成AIにアクセスするためのライブラリ。  
@@ -57,9 +57,9 @@ AIにレビューを読ませて有用・非有用を判定
 
 手順2 Google driveと接続する。  
 
-# Google Driveのマウントとパッケージのインストール
-drive.mount('/content/drive')
-!pip install google-generativeai
+      # Google Driveのマウントとパッケージのインストール
+        drive.mount('/content/drive')
+        !pip install google-generativeai
 
 手順3 API接続を行う。  
 
