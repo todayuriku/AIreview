@@ -74,22 +74,31 @@ AIにレビューを読ませて有用・非有用を判定
 
      ⑹# 行の表示数を設定（Noneを指定すると全ての行を表示）
        pd.set_option('display.max_rows', None)
-     # 列の表示数を設定（Noneを指定すると全ての列を表示）
-     pd.set_option('display.max_columns', None)
+    　 # 列の表示数を設定（Noneを指定すると全ての列を表示）
+     　pd.set_option('display.max_columns', None)
 
 
 手順3 API接続を行う。  
 
       ⑺# API鍵の設定
      　　GOOGLE_API_KEY = userdata.get('GOOGLE_API_KEY')
-     　　genai.configure(api_key=GOOGLE_API_KEY)
+     　　genai.configure(api_key=GOOGLE_API_KEY)  
 
-       
+      ⑻# Gemini Proモデルの初期化
+       　# gemini_pro = genai.GenerativeModel("gemini-1.5-flash")
+         gemini_pro = genai.GenerativeModel("gemini-1.0-pro")  
 
-# APIのテスト
-prompt = "こんにちは"
-response = gemini_pro.generate_content(prompt)
-print(response.text)
+         # APIのテスト
+         　prompt = "こんにちは"
+           response = gemini_pro.generate_content(prompt)
+           print(response.text)
+　　　　　　
+　　　　　　
+
+      ⑼ from google.colab import drive
+         　drive.mount('/content/drive')
+
+
 
 手順4 dfにレビューデータを入れる  
 
