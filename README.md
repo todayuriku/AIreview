@@ -24,6 +24,8 @@ AIにレビューを読ませて有用・非有用を判定
    　・google.api_core.exceptions: Google APIのエラーハンドリングを行うための例外クラスを提供します。  
      ・google.api_core.retry: API呼び出しの再試行を管理するための機能を提供します。  
 
+     ② import numpy as np　import pandas as pd
+
      
     
 
