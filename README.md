@@ -81,6 +81,10 @@ AIにレビューを読ませて有用・非有用を判定
 
 手順3 API接続を行う。  
 
+      ⑺# API鍵の設定
+     　　GOOGLE_API_KEY = userdata.get('GOOGLE_API_KEY')
+     　　genai.configure(api_key=GOOGLE_API_KEY)
+
 手順4 dfにレビューデータを入れる  
 
 　　　df = pd.read_csv("ここ")  
