@@ -154,10 +154,10 @@ results_df:
 
      (13) results_df.head()　　
 
-以上のresults_df.head()は、分析結果のデータフレームresults_dfの最初の5行を表示するためのコードです。この関数を使うことで、データフレームの構造や内容を簡単に確認できます。
+以上のresults_df.head()は、分析結果のデータフレームresults_dfの最初の5行を表示するためのコードです。この関数を使うことで、データフレームの構造や内容を簡単に確認できます。  
 
 
+     (14) results_df["analysis_result"].value_counts()  
 
-
-     
-     
+　　　　　　
+以上のresults_df["analysis_result"].value_counts()は、分析結果のデータフレームresults_df内のanalysis_resultカラムに含まれる各値の出現回数をカウントするためのコードです。このメソッドを使用することで、有用なレビューと非有用なレビューの数を簡単に把握できます。
