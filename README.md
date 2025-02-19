@@ -6,7 +6,7 @@ AIにレビューを読ませて有用・非有用を判定
 
 手順1 必要なライブラリをインポートする。  
 
-      ①# 必要なパッケージのインポート
+      ⑴# 必要なパッケージのインポート
       import pandas as pd
       import google.generativeai as genai
       from google.colab import drive, userdata
@@ -27,7 +27,7 @@ AIにレビューを読ませて有用・非有用を判定
    　・google.api_core.exceptions: Google APIのエラーハンドリングを行うための例外クラスを提供します。  
      ・google.api_core.retry: API呼び出しの再試行を管理するための機能を提供します。  
 
-     ② import numpy as np　import pandas as pd 
+     ⑵ import numpy as np　import pandas as pd 
      
 以上のコードは、numpyとpandasライブラリをインポートするためのものです。  
 これらのライブラリについて簡単に説明します。  
